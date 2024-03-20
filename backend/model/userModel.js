@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Validator = require('Validator');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
     googleId: {
@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please provide an email'],
         unique: true,
         lowercase: true,
-        validate: [Validator.isEmail, 'Invalid Email']
+        validate: [validator.isEmail, 'Invalid Email']
     },
 
     role:{
@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please provide a phone number'],
         validate: {
             validator: function(doc){
-                return validator.isMobilePhone(v, 'en-IN', {strictMode: false});
+                return validator.isMobilePhone(doc, 'en-IN', {strictMode: false});
             },
             message: props=>  `${props.value} is not a valid phone number`
         }
@@ -73,3 +73,4 @@ module.exports = UserData;
 
 // TODO no need to save ca_id. Create a separate auth for ca and create their IDs but will these coupon be valid indefinitely or for once.
 // TODO if a person pays participant fees then change role from audience to participant
+// TODO add +91 b4 pnum to make validator work
