@@ -13,7 +13,7 @@ const CAPortal = () => {
                     CA Portal
                 </h1>
                 <button className="btn" type="button">
-                    <Link to="/caregister">
+                    <Link to="/googleauth">
                         <strong className="font-cM">REGISTER NOW</strong>
                         <div id="container-stars">
                             <div id="stars"></div>

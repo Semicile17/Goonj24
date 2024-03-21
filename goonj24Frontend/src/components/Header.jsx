@@ -25,7 +25,7 @@ const Header = () => {
             <div className="flex items-center gap-3 md:hidden">
                 <div className="">
                     <button type="button" className="flex gap-3 bg-[#7a59df] justify-center text-white rounded-3xl w-28 hover:bg-[#5c2ee3] font-cM">
-                        <Link to="/login">LOGIN </Link>
+                        <Link to="/googleauth">Login </Link>
                         <BsRocketTakeoff className="mt-1"/>
                     </button>
                 </div>
@@ -60,7 +60,7 @@ const Header = () => {
                         <Link to="/caportal">CA PORTAL</Link>
                     </li>
                         <button type="button" className="flex gap-3 bg-[#7a59df] justify-center text-white rounded-3xl w-28 hover:bg-[#5c2ee3] font-cM text-lg">
-                            <Link to="/login">LOGIN </Link>
+                            <Link to="/googleauth">LOGIN </Link>
                             <BsRocketTakeoff className="mt-1"/>
                         </button>
                 </ul>

@@ -1,25 +1,30 @@
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import LoginAstro from "../assets/Images/LoginAstronaut.png";
 import { jwtDecode } from "jwt-decode";
-import { redirect } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 const GoogleAuth = () => {
+  const [userData, setUserData] = useState({
+    name: undefined,
+    email: undefined
+  });
 
   
   const clientID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-
-  console.log(clientID)
-
+  
   const handleSuccess = (credentialResponse) => {
-    console.log(credentialResponse)
+    
     let decoded = jwtDecode(credentialResponse.credential);
-    console.log(decoded);
-    if (decoded){
-      redirect('/login')
-    }
+    setUserData({
+      name: decoded.name,
+      email: decoded.email
+    })
 
+    console.log(userData)
   };
+  
+
 
   const handleError = () => {
     console.log('Login Failed');
