@@ -1,11 +1,9 @@
 import {data } from  "../data/dummydata";
 import { useLocation, useParams } from "react-router-dom";
-console.log(data[0].Event[1])
 const EventDetail = () => {
     const data = useLocation();
 
   const eventDetail = data.state.event.data;
-  console.log(eventDetail)
     return (
         <div className="w-full bg-cover">
             <div className="bg-bg_image bg-cover px-5 md:px-20 md:py-6 h-full">
